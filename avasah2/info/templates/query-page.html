@@ -1,0 +1,91 @@
+{% extends "nav-bar.html" %}
+{% load static %}
+{% block content %}
+
+    <div class='row'>
+        <dir class='col-sm-3'>
+            <h3 class='font-weight-bold fade-in ml-5'>Query</h3> <br>
+            <div id="success" class=' ml-5 text-justify font-weight-bold'>
+                <p>{{message}}</p>
+            </div>
+            <p class='text-white font-weight-bold ml-5'> Please fill the information</p><p class='text-left text-white font-weight-bold ml-5'> here</p> <p class='text-left text-white font-weight-bold ml-5'>our patners will contact you</p> <p class='text-left text-white font-weight-bold ml-5'>Soon </p>
+        </dir><br>
+        <div class=' flex col-sm-8 mr-2'>
+            
+            <form method="post" name="sentMessage" id="contactForm">
+                {% csrf_token %}  
+                {% for fields in form %}
+                    <div class='ml-5 mt-2 text-white '>{{ fields.label_tag }}</div>{{ fields }}
+                {% endfor %} 
+                <br>
+                <div>
+                    <button class="btn btn-outline-success ml-5" type="submit" id="sendMessageButton">Send Message</button>
+                </div>
+            </form>
+        </div>  
+        
+    </div>
+
+           <!-- <div class=" row w-50 p-3 mx-5 ">
+                <div class="contact-form">
+                    <div id="success"></div>
+                        <form method="post" name="sentMessage" id="contactForm" novalidate="novalidate">
+                            {% csrf_token %}
+                            <p class='text-white'>Full Name</p>
+                            <div class="control-group ">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <p class='text-white'>Phone Number</p>
+                            <div class="control-group ">
+                                <input type="text" class="form-control" id="number" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your name" />
+                                    <p class="help-block text-danger"></p>
+                            </div>
+                            <p class='text-white'>Your Email id</p>
+                            <div class="control-group text-white">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            <div class="control-group mb-3">
+                                <p class='text-white'>Type Property Want to Buy</p>
+                                <select class="form-select form-control" id="area" placeholder="Area" required="required" data-validation-required-message="Please enter your name" aria-label="Default select example">
+                                    <option selected>None</option>
+                                    <option value="1">Residential Property</option>
+                                    <option value="2">Commercial Property</option>
+                                    <option value="3">Other Property</option>
+                                  </select>
+                            </div>
+                            <p class='text-white'>Area</p>
+                            <div class="control-group mb-3">
+                                    <p class="help-block text-danger"></p>
+                                    <select class="form-select form-control" id="area" placeholder="Area" required="required" data-validation-required-message="Please enter your name" aria-label="Default select example">
+                                        <option selected>None</option>
+                                        <option value="1">Rau</option>
+                                        <option value="2">Vijay Nagar</option>
+                                        <option value="3">Rajvigand</option>
+                                      </select>
+                            </div>
+                            <p class='text-white'>Budget in Lakhs [example 30-40]</p>
+                            <div class="control-group ">
+                                
+                                 <input type="text" class="form-control is-valid" id="budget" placeholder="Budget" required="required" data-validation-required-message="Please enter your name" />
+                                    <p class="help-block text-danger"></p>
+                            </div>
+                            <p class='text-white'>Any other specifics</p>
+                            <div class="control-group">
+                                <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                    <p class="help-block text-danger"></p>
+                            </div>
+                                    
+                            <div>
+                            <button class="btn btn-outline-success" type="submit" id="sendMessageButton">Send Message</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    -->
+{% endblock content %}
