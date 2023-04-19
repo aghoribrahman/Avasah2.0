@@ -1,7 +1,15 @@
 {% extends "nav-bar.html" %}
 {% load static %}
 {% block content %}
-
+    <div class="page-header pt-4 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Query Here</h2>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class='row'>
         <dir class='col-sm-3'>
             <h3 class='font-weight-bold fade-in ml-5'>Query</h3> <br>
@@ -9,9 +17,8 @@
                 <p>{{message}}</p>
             </div>
             <p class='text-white font-weight-bold ml-5'> Please fill the information</p><p class='text-left text-white font-weight-bold ml-5'> here</p> <p class='text-left text-white font-weight-bold ml-5'>our patners will contact you</p> <p class='text-left text-white font-weight-bold ml-5'>Soon </p>
-        </dir><br>
-        <div class=' flex col-sm-8 mr-2'>
-            
+        </dir>
+        <div class='col-sm-8 mr-2'>
             <form method="post" name="sentMessage" id="contactForm">
                 {% csrf_token %}  
                 {% for fields in form %}

@@ -1,0 +1,72 @@
+{% extends "nav-bar.html" %}
+{% load static %}
+{% block content %}
+            <!-- Page Header Start -->
+           <div class="page-header pt-4 pb-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            {% for property in property_info %} 
+                            <h2>{{property.property_name}}</h2>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Header End -->
+
+<div class="text-center">
+    {% for property in property_info %} 
+ 
+    {% for image in images %}
+    {% if forloop.counter == 1 %}
+        {% if property.property_name == image.image_name.property_name %}
+        <div class="row justify-content-center ">
+            <div class='col-md-4 mb-4' style="padding-top:30px;">
+                <div class="card" style="">   
+                    <img src="{{ image.image.url }}" alt="image" class="zoomable card-img-top" alt="Category Title">                      
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    <h5 class="font-weight-bold mb-3 mt-3">Property Name </h5><span class="text-white">{{property.property_name}}</span> 
+    <h5 class="font-weight-bold mb-3 mt-3">Property Timeline </h5><span class="text-white">{{property.property_timeline}}</span> 
+    <h5 class="font-weight-bold mb-3 mt-3">Property Type </h5><span class="text-white">{{property.property_type}}</span>  <br>
+    <h5 class="font-weight-bold mb-3 mt-3">Property Status </h5><span class="text-white">{{property.status}}</span>  <br>
+    <h5 class="font-weight-bold mb-3 mt-3">Rera Number </h5><span class="text-white mb">{{property.rera_number}}</span>  <br>
+    <h5 class="font-weight-bold mb-3 mt-3">Property Description </h5><span class=""><p class="text-white card-text"></p></span>
+
+    <div class="card text-center bg-transparent border-0">
+        <div class="card-body">
+          <p class="card-text text-white">{{property.property_detail}}</p>
+        </div>
+    </div>
+
+
+
+
+
+    {% endfor %}
+</div>
+
+<div class="container">
+    <div class="row">
+        {% for property in property_info %}
+            {% for image in images %}
+                {% if property.property_name == image.image_name.property_name %}
+                <div class='col-md-3' style="padding-top:30px;">
+                    <div class="card" style="">   
+                        <img src="{{ image.image.url }}" alt="image" class="zoomable card-img-top" alt="Category Title">                      
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+    
+
+{% endblock content %}

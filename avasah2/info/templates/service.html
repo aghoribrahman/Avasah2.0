@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
             <!-- Page Header Start -->
-            <div class="page-header">
+            <div class="page-header pt-4 pb-4">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -26,25 +26,31 @@
                         <h2>We Provide Services</h2>
                     </div>
                     <div class="row">
+                        {% for property_categorys in property_category %}
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="service-item">
                                 <div class="service-img">
-                                    <img src="/static/img/service-2.jpg" alt="Image">
+                                    {% if forloop.counter == 1 %}
+                                        <img src="/static/img/service-2.jpg" alt="Image">
+                                    {% else %}
+                                        <img src="/static/img/service-1.jpg" alt="Image">
+                                    {% endif %}
                                     <div class="service-overlay">
                                         <p class='text-white'>
-                                        <a href="{% url 'query' %}" class='text-white' >
+                                        <a href="{% url 'blog' property_categorys.id %}" class='text-white' >
                                             A residential plot is a piece of land that is zoned for residential use, which means it can be used to build a home or other type of residential property. Residential plots come in different sizes and shapes, and can be found in different locations such as suburbs, cities, or rural areas. Purchasing a residential plot allows a person to build a custom home that meets their unique needs and preferences, and can be a valuable investment for the future. 
                                         </a>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="service-text">
-                                    <h3>Residential Property</h3>
+                                    <h3>{{ property_categorys.type_of_property }}</h3>
                                     <a class="btn" href="/static/img/service-1.jpg" data-lightbox="service">+</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        {% endfor %}
+                        <!-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                             <div class="service-item">
                                 <div class="service-img">
                                     <img src="/static/img/service-1.jpg" alt="Image">
@@ -77,13 +83,12 @@
                                     <a class="btn" href="/static/img/service-3.jpg" data-lightbox="service">+</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         
                     </div>
                 </div>
-            </div>
+            </div> 
             <!-- Service End -->
-            
             
             <!-- FAQs Start -->
             <div class="faqs">
