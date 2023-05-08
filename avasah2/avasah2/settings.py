@@ -80,15 +80,15 @@ WSGI_APPLICATION = 'avasah2.wsgi.application'
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '8bAW6tHqG89zvOhewFc1', #'vEEvZ0f6WPfcaUPnxRt4',
-        'HOST': 'containers-us-west-208.railway.app', #'containers-us-west-159.railway.app',
-        'PORT': '6681' #'7323',
+        'PASSWORD': 'Tr7662230066_wcdr',
+        'HOST': 'db.prbhestzyrinxscqzntp.supabase.co',
+        'PORT': '5432',
     }
 }
+
 
 DATABASES['default'] = dj_database_url.config()
 
